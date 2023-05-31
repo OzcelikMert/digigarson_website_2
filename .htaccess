@@ -1,0 +1,12 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+
+
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(css|js|images|inc|lang)
+
+RewriteRule ^/?$ index.php [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*[a-zA-Z0-9]+)$ index.php?lang=$1 [L]
